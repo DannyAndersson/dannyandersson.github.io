@@ -1,0 +1,20 @@
+/* I know you said no CSS. But I just wanted to set the background to somtehing a little easier on the eyes. */
+
+body {
+    background-color: rgb(169, 215, 252);
+}
+
+/* ...Also some album content. */
+.album-content {
+    clear: both; /* Clear any previous floats to prevent layout issues */
+}
+
+.album-image {
+    float: left; /* Float the image to the left */
+    margin-right: 20px; /* Add some space between the image and the paragraph */
+}
+
+/*I also don't really like how hyperlinks turn a jarring blue.*/
+a{
+    color: rgb(0, 0, 0); /* Set the link color to black */
+}

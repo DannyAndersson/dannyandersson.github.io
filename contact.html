@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contact form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>the contact form page</h2>
+    <a href="index.html"><button>go back</button></a>
+    <hr>
+    
+    <h4>you may contact me via:</h4>
+    <ul>
+        <li>email: 
+            <img src="resources/gmail.jpg" alt="G-mail logo" style="width:24px">
+            <ul>
+                <li>daniellind4m@gmail.com</li>
+                <li>sweden.daniel.andersson@gmail.com</li>
+            </ul>
+        </li>
+        <li>discord: <img src="resources/discord.jpg" alt="Discord logo" style="width:24px"> @DanielAndersson</li>
+        <li><s>twitter</s> x: <img src="resources/twitter.jpg" alt="Bootleg twitter logo" style="width:24px"> @Dan__Andersson</li>
+        <li>built-in contact form: see below</li>
+    </ul>
+
+    <hr>
+    <h3>The Built-In Contact Form!</h3>
+    <h4>this doesnt work because i havent installed php yet, just ignore it</h4>
+    <!-- Contact form -->
+    <form action="contact.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter your message" required></textarea>
+        <input type="submit" value="Send">
+</body>
+</html>

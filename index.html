@@ -2,46 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <title>Daniel Lind</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(70deg, #1d0c6e, #135203);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s infinite alternate;
+        font-family: Arial, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+        p {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        button{
+            background-color: #1aaeff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar Styles */
+        #navbar {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+            border-right: 1px solid #1aaeff; /* Vertical divider */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #navbar li:hover {
+            background-color: #1aaeff; /* Accent color on hover */
+        }
+
+        #navbar img {
+            width: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
+        #content {
+            margin-left: 220px; /* Space for the navigation bar */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Content Styles */
+        /* Add your content styles here */
+
+        /* Copyright Style */
+        #copyright {
+            padding: 10px;
+            text-align: center;
+            background-color: #1aaeff;
+            color: #fff;
+        }
+
+        /* Image Styles */
+        #profile-picture {
+            border: 4px solid #1aaeff; /* Accent color border */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+            max-width: 15%;
+        }
+
+        #intro-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- main body -->
-    <img src="resources/me.jpg" alt="Picture of Daniel Lind wearing a tie and jacket" style="width:256px">
-    <h1>Daniel Lind</h1>
-    <h3>average in every way</h3>
-
-    <div class="main-text">
-        <hr> <!-- horizontal line. wacky. -->
-        
-        <div class="bio">
-            <h2 id="Biography">Biography</h2>
-            <p>Hello! My name is Daniel Lind. This is a test commit of a personal website which is still in development and will look way better when done.</p>
-
-            <p>Wanna know more about me? There's a dedicated page for that, if you want that sort of thing. Ahem, stalker...</p>
-            <a href="about.html"><button>More about Daniel Lind</button></a>
-
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <ul>
+            <a href="index.html"><li><img src="resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="projects.html"><li><img src="resources/project-icon.png" alt="Project Icon"> Projects</li></a>
+            <a href="contact.html"><li><img src="resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
+            <a href="about.html"><li><img src="resources/about-icon.png" alt="About Icon"> About</li></a>
+        </ul>
+        <!-- Copyright Information -->
+        <div id="copyright">
+            &copy; 2023 Daniel Lind
         </div>
+    </div>
 
-        <hr>
-        
-        <div class="projects">
-            <h2 id="Projects">Projects</h2>
-            <p>Here's some sample content.</p>
-            <a href="projects/videos.html"><button>Video Projects</button></a>
-            <a href="projects/music.html"><button>Music Projects</button></a>
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Your website content goes here -->
+        <h1>C:\Daniel\</h1>
+        <!-- Profile Picture -->
+        <img id="profile-picture" src="resources/daniel.png" alt="Daniel Lind">
+        <!-- Introductory Text -->
+        <div id="intro-text">
+            <p>Hi there! I'm Daniel Lind, and this is my website to showcase and share some selected projects I've worked on. Please use the navigation bar to your left at your leisure, or click below to jump directly to the list of projects.</p>
+            <a href="projects.html"><button>View Projects</button></a>
         </div>
-
-        <hr>
-
-        <div class="contact">
-            <h2 id="Contact">Contact Me</h2>
-            <p>If you want to get in contact with me for whatever reason, please visit my completely dysfunctional contact form on its dedicated page:</p>
-            <a href="contact.html"><button>Contact Form</button></a>
-            <h4>Honestly, you can talk to me about anything. It's not like I'm busy. Tell me about your day or whatever.</h4>
-        </div>
-
-        <hr>
     </div>
 </body>
 </html>

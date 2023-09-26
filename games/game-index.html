@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <title>Projects</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(90deg, #231375, #6e6545);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s infinite alternate;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+        p {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            max-width: 75%;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        b{
+            color:#fff;
+        }
+
+        button{
+            background-color: #1aaeff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar Styles */
+        #navbar {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+            border-right: 1px solid #1aaeff; /* Vertical divider */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #navbar li:hover {
+            background-color: #1aaeff; /* Accent color on hover */
+        }
+
+        #navbar img {
+            width: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
+        #content {
+            margin-left: 220px; /* Space for the navigation bar */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        /* Content Styles */
+        /* Add your content styles here */
+
+        /* Copyright Style */
+        #copyright {
+            padding: 10px;
+            text-align: center;
+            background-color: #1aaeff;
+            color: #fff;
+        }
+
+        /* Image Styles */
+        #profile-picture {
+            border: 4px solid #1aaeff; /* Accent color border */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+            max-width: 15%;
+        }
+
+        #intro-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Add this to your existing styles */
+.project {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1aaeff;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.project-header h2 {
+    margin: 0;
+}
+
+.toggle-button {
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    color: #1aaeff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.project-content {
+    display: none;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+.project.open .project-content {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <ul>
+            <a href="../index.html"><li><img src="../resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="../projects.html"><li><img src="../resources/project-icon.png" alt="Project Icon"> Projects</li></a>
+            <a href="../contact.html"><li><img src="../resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
+            <a href="../about.html"><li><img src="../resources/about-icon.png" alt="About Icon"> About</li></a>
+        </ul>
+        <!-- Copyright Information -->
+        <div id="copyright">
+            &copy; 2023 Daniel Lind
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <h1>Projects</h1>
+        <p>Here are some of my game projects, ordered from newest to oldest.</p>
+        <div id="projects">
+<div class="project">
+    <div class="project-header">
+        <h2>Coconuts in Space</h2>
+        <button class="toggle-button">Show/Hide</button>
+    </div>
+    <div class="project-content">
+        <img src="../resources/screenshots/cis.jpg" style="max-width: 45%;" alt="Screenshot of Coconuts in Space">
+        <img src="../resources/screenshots/cis2.jpg" style="max-width: 45%;" alt="Second screenshot of Coconuts in Space">
+        <p>Date: <b>2017-05-08</b></p>
+        <p>I was 12 and I had just barely started figuring out Unity when I made this. While technically my second game on the engine, I consider it the only one that is playable (not to be confused with 'good'. it is <i>far</i> from that.) En contraire, it is borderline uncontrollable, and a hodge-podge of random assets.<br><br>The premise? You're a coconut, located on a space station of some kind. Your goal is to leave. Other coconuts are trying to stop you. That is all.</p>
+        <a href="coconuts-in-space.html"><button>Full Details</button></a>
+        <a href="../downloads/Coconuts-In-Space-Setup.exe"><button style="background-color: #49d878;">Download</button></a>
+    </div>
+</div>
+
+<div class="project">
+    <div class="project-header">
+        <h2>Project 2</h2>
+        <button class="toggle-button">Toggle</button>
+    </div>
+    <div class="project-content">
+        <p>Description of Project 2 goes here...</p>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <script>
+        // JavaScript to handle toggling project content
+        document.addEventListener('DOMContentLoaded', function () {
+            const projects = document.querySelectorAll('.project');
+        
+            projects.forEach(function (project) {
+                const button = project.querySelector('.toggle-button');
+        
+                button.addEventListener('click', function () {
+                    project.classList.toggle('open');
+                });
+            });
+        });
+        </script>        
+</body>
+</html>

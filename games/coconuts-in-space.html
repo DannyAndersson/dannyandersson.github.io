@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <title>Coconuts in Space</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(-90deg, #1e1c2b, #9c9449);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s infinite alternate;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+        p {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            max-width: 75%;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h2{
+            color:#fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        b{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        b{
+            color:#fff;
+        }
+
+        button{
+            background-color: #1aaeff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar Styles */
+        #navbar {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+            border-right: 1px solid #1aaeff; /* Vertical divider */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #navbar li:hover {
+            background-color: #1aaeff; /* Accent color on hover */
+        }
+
+        #navbar img {
+            width: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
+        #content {
+            margin-left: 220px; /* Space for the navigation bar */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        /* Content Styles */
+        /* Add your content styles here */
+
+        /* Copyright Style */
+        #copyright {
+            padding: 10px;
+            text-align: center;
+            background-color: #1aaeff;
+            color: #fff;
+        }
+
+        /* Image Styles */
+        #profile-picture {
+            border: 4px solid #1aaeff; /* Accent color border */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+            max-width: 15%;
+        }
+
+        #intro-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Add this to your existing styles */
+.project {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1aaeff;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.project-header h2 {
+    margin: 0;
+}
+
+.toggle-button {
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    color: #1aaeff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.project-content {
+    display: none;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+.project.open .project-content {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <ul>
+            <a href="../index.html"><li><img src="../resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="../projects.html"><li><img src="../resources/project-icon.png" alt="Project Icon"> Projects</li></a>
+            <a href="../contact.html"><li><img src="../resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
+            <a href="../about.html"><li><img src="../resources/about-icon.png" alt="About Icon"> About</li></a>
+        </ul>
+        <!-- Copyright Information -->
+        <div id="copyright">
+            &copy; 2023 Daniel Lind
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <h1>Coconuts in Space</h1>
+        <h2>Date: <b>2017-05-08</b></h2>
+        <h2>Screenshots:</h2>
+        <div class="screenshot-gallery" style="max-width: 75%; overflow: hidden; position: relative;">
+            <img src="../resources/screenshots/cis.jpg" style="max-width: 100%;" alt="Screenshot of Coconuts in Space">
+            <img src="../resources/screenshots/cis2.jpg" style="max-width: 100%;" alt="Second screenshot of Coconuts in Space">
+            <!-- Add more screenshots here -->
+            
+            <!-- Navigation buttons -->
+            <button style="margin: 4px" class="prev" onclick="changeImage(-1)">Previous</button>
+            <button style="margin: 4px" class="next" onclick="changeImage(1)">Next</button>
+        </div>
+        <p>Let me set the scene. The year is 2017. I'm 12 years old. Already a recipe for disaster. Then, I started using Unity. Technically, this is the 2nd game I made with the engine, but
+            in practice it's the one that matters. Despite what you might think if you try it, I had actually made games prior to this point too! I had fundamental knowledge of GameMaker Studio,
+            which amounted to nothing, and besides that, well...<br><br>
+            I had some experience programming, though that was mostly in Visual Basic, and moreover it was primarily experienced gained from copy n' pasting code from other people's tutorials, 
+            scratching my head at why it didn't work, and then trying another tutorial. Not exactly an empirical science. I'd like to think I've gotten better since then - jury's out on that - but this game serves
+            as a time capsule to a time when I thought that the only way to let the player reload each stage was to have a dedicated script for each stage where the only difference was an increase in scene index. 10/10.<br><br>
+            I don't recommend trying this game out, because there's nothing to gain out of it. It's a bad game and it isn't fun. It's here for archival purposes. At least it shows how far I've come.
+        </p>
+        <div class="button-container" style="margin-right: 10px;">
+            <a href="game-index.html"><button>Back to Games List</button></a>
+            <a href="../downloads/Coconuts-In-Space-Setup.exe"><button style="background-color:#49d878">Download</button></a>
+        </div>
+        
+
+        <script>
+            let currentImageIndex = 0;
+            const images = document.querySelectorAll('.screenshot-gallery img');
+            
+            function changeImage(n) {
+                currentImageIndex += n;
+                if (currentImageIndex >= images.length) {
+                    currentImageIndex = 0;
+                }
+                if (currentImageIndex < 0) {
+                    currentImageIndex = images.length - 1;
+                }
+                
+                images.forEach((img, index) => {
+                    if (index === currentImageIndex) {
+                        img.style.display = 'block';
+                    } else {
+                        img.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Show the first image initially
+            changeImage(0);
+        </script>
+</div>
+    <script>
+        // JavaScript to handle toggling project content
+        document.addEventListener('DOMContentLoaded', function () {
+            const projects = document.querySelectorAll('.project');
+        
+            projects.forEach(function (project) {
+                const button = project.querySelector('.toggle-button');
+        
+                button.addEventListener('click', function () {
+                    project.classList.toggle('open');
+                });
+            });
+        });
+        </script>        
+</body>
+</html>

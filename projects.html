@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Projects</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(90deg, #261527, #4e8b53);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s infinite alternate;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+        p {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            max-width: 75%;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        b{
+            color:#fff;
+        }
+
+        button{
+            background-color: #1aaeff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar Styles */
+        #navbar {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+            border-right: 1px solid #1aaeff; /* Vertical divider */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #navbar li:hover {
+            background-color: #1aaeff; /* Accent color on hover */
+        }
+
+        #navbar img {
+            width: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
+        #content {
+            margin-left: 220px; /* Space for the navigation bar */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        /* Content Styles */
+        /* Add your content styles here */
+
+        /* Copyright Style */
+        #copyright {
+            padding: 10px;
+            text-align: center;
+            background-color: #1aaeff;
+            color: #fff;
+        }
+
+        /* Image Styles */
+        #profile-picture {
+            border: 4px solid #1aaeff; /* Accent color border */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+            max-width: 15%;
+        }
+
+        #intro-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Add this to your existing styles */
+.project {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1aaeff;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.project-header h2 {
+    margin: 0;
+}
+
+.toggle-button {
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    color: #1aaeff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.project-content {
+    display: none;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+.project.open .project-content {
+    display: block;
+}
+
+#project-categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.project-category {
+    flex: 0 0 calc(25% - 20px);
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.project-category-bg {
+    width: 100%;
+    padding-top: 60%; /* Set the aspect ratio of your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.project-category h2 {
+    color: #1aaeff;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    background-color: #fff;
+    border-top: 1px solid #1aaeff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.project-category:hover {
+    transform: scale(1.05); /* Add a slight zoom effect on hover */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <ul>
+            <a href="index.html"><li><img src="resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="projects.html"><li><img src="resources/project-icon.png" alt="Project Icon"> Projects</li></a>
+            <a href="contact.html"><li><img src="resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
+            <a href="about.html"><li><img src="resources/about-icon.png" alt="About Icon"> About</li></a>
+        </ul>
+        <!-- Copyright Information -->
+        <div id="copyright">
+            &copy; 2023 Daniel Lind
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <h1>Projects</h1>
+        <p>I've grouped my projects into separate categories for games, software, videos, and other. Currently, only some select games are hosted here.</p>
+
+        <div id="project-categories">
+            <div class="project-category">
+                <a href="games/game-index.html">
+                    <div class="project-category-bg" style="background-image: url('resources/games-bg.jpg');"></div>
+                    <h2>Games</h2>
+                </a>
+            </div>
+            <div class="project-category">
+                <a href="501.html">
+                    <div class="project-category-bg" style="background-image: url('resources/software-bg.jpg');"></div>
+                    <h2>Software</h2>
+                </a>
+            </div>
+            <div class="project-category">
+                <a href="501.html">
+                    <div class="project-category-bg" style="background-image: url('resources/videos-bg.jpg');"></div>
+                    <h2>Videos</h2>
+                </a>
+            </div>
+            <div class="project-category">
+                <a href="501.html">
+                    <div class="project-category-bg" style="background-image: url('resources/other-bg.jpg');"></div>
+                    <h2>Other</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

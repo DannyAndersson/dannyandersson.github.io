@@ -119,6 +119,26 @@
             text-align: center;
         }
 
+        #cookie-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #cookie-consent-banner button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
     </style>
 </head>
 <body>
@@ -148,5 +168,43 @@
             <a href="projects.html"><button>View Projects</button></a>
         </div>
     </div>
+
+    <div id="cookie-consent-banner">
+        <p>This site uses cookies to store your website preferences, and nothing else. I will not sell your data nor store junk on your computer.</p>
+        <button onclick="acceptCookies()">Accept</button>
+        <button onclick="rejectCookies()">Reject</button>
+    </div>
+    
+    <script>
+        function acceptCookies() {
+            // Set a cookie to indicate that the user has accepted cookies
+            document.cookie = "cookiesAccepted=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
+    
+            // Hide the cookie consent banner
+            document.getElementById("cookie-consent-banner").style.display = "none";
+        }
+    
+        function rejectCookies() {
+            // Set a cookie to indicate that the user has rejected cookies
+            document.cookie = "cookiesAccepted=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
+    
+            // Hide the cookie consent banner
+            document.getElementById("cookie-consent-banner").style.display = "none";
+        }
+    
+        // Check cookies status when the page loads
+        window.onload = checkCookiesAccepted;
+        
+        function checkCookiesAccepted() {
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split('=');
+                if (name.trim() === 'cookiesAccepted' && value === 'true') {
+                    // Hide the cookie consent banner if cookies are accepted
+                    document.getElementById("cookie-consent-banner").style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>

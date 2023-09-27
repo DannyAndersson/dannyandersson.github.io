@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/resources/favicon.ico" type="image/x-icon">
 
-    <title>Kattjakt</title>
+    <title>Coconuts on Earth</title>
     <style>
     body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(70deg, #1d0c6e, #135203);
+        background: linear-gradient(-90deg, #6c63a9, #44b27d);
         background-size: 400% 400%;
         animation: gradientAnimation 15s infinite alternate;
-        font-family: Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     @keyframes gradientAnimation {
@@ -200,52 +200,30 @@
 
     <!-- Main Content -->
     <div id="content">
-        <h1>Kattjakt (Discontinued Beta)</h1>
-        <h2>Date: <b>2018-03-16</b></h2>
+        <h1>Russian Pepsi Game</h1>
+        <h2>Date: <b>TBA</b></h2>
         <h2>Screenshots:</h2>
         <div class="screenshot-gallery" style="max-width: 75%; overflow: hidden; position: relative;">
-            <img src="/resources/screenshots/kattjakt.jpg" style="max-width: 100%;">
-            <img src="/resources/screenshots/kattjakt2.jpg" style="max-width: 100%;">
-            <img src="/resources/screenshots/kattjakt3.jpg" style="max-width: 100%;">
-            <img src="/resources/screenshots/kattjakt4.jpg" style="max-width: 100%;">
-            <img src="/resources/screenshots/kattjakt5.jpg" style="max-width: 100%;">
+            <img src="/resources/screenshots/game.jpg" style="max-width: 100%;">
+            <img src="/resources/screenshots/game2.jpg" style="max-width: 100%;">
             <!-- Add more screenshots here -->
             
             <!-- Navigation buttons -->
             <button style="margin: 4px" class="prev" onclick="changeImage(-1)">Previous</button>
             <button style="margin: 4px" class="next" onclick="changeImage(1)">Next</button>
         </div>
-        <p>This was to be the final in the "Coconuts" trilogy (which I'm assuming familiarity with) that made up most of my early game development history. It was moreover made specifically to be showcased to my middle school class at the time,
-            and it features the class teacher as the main antagonist. Go figure. He was actually a decent guy, the class just wanted him to be the villain. Can't argue with that.<br><br>
-            By now, I'd earned some Unity experience, and I think it shows. The camera angle is passable compared to Coconuts on Earth, but it does not do itself any favours by being locked and static. In some sections, you have to go in the opposite direction, and you have no line of sight.
-            That's the least of this game's issues, though. It was never finished, and that was mostly due to overambition clashing with the reality of me not knowing how to actually program or make games.<br><br>
-            I had the full story planned out - that reminds me, there are awful voice-acted cutscenes in this game that make me cringe into oblivion - and I had a big expansive world planned, and all that jazz. Now, to give you a small sample of my incompetence,
-            let me ask you something. If you want to implement a way to backtrack in your game, how would you do it? How would you make the game know where to spawn you in the scene if you can enter the scene from multiple directions?
-            Maybe you'd have a static variable that tracks where to place you upon entering the scene? Maybe you wouldn't have a separate gameobject for each scene, and instead just edit your player's position on the fly to make it go where you want it to go?
-            <br><br>My genius solution was having <i>upwards of 5 copies of each level</i> for backtracking purposes. Yes. I'm serious. One for when you go through it, one for if you go back to it from the next level, one for if you go back to it from the next level after already going back to the next level from the one after that. Ad infinitum.
-            <br><br>
-            It should surprise no one that this game was never finished.
+        <p>While I was growing up, specifically around the ages of 11-13, I really enjoyed watching a series of videos by a Swedish YouTuber called Joel, whose gimmick in this series was hopping onto a virtual machine and completely destroying them with malware by browsing the web.
+            In his Windows Vista (?) destruction stream, he discovered an old ice cream commercial game which was in an eastern european language and had a ridiculously bass-boosted soundtrack, alongside a very loud commercial that played whenever you started the game.<br><br>
+        While not comedy gold by today's standards, I found this hilarious and decided to make my own clone of it, using the Russian language and Pepsi instead of ice cream (because, hey, I liked Pepsi.) I made my own similarly bass boosted commercial for the startup (I advise you to turn down your volume when starting it up), but I used the same soundtrack as the original ice cream game.<br><br>
+        <br><br>And as is courtesy, I never finished it. To save you the trouble: if you suffer through the horrible physics and collect all 100 coins, you'll find that nothing happens. The CIA could use this as a torture method.
         </p>
         <div class="button-container" style="margin-right: 10px;">
             <a href="game-index"><button>Back to Games List</button></a>
             <a href="https://drive.google.com/file/d/1SheUYhoXua5FL7bgLyuy50-L4_wrfGax/view?usp=sharing"><button style="background-color:#49d878">Download</button></a>
         </div>
-
         <hr>
-        
         <p style="font-size: 12px;  margin:-4px"><b>Important note:</b>
-            <br>Unfortunately, as a child, I was not very aware of copyright or attribution. I can't be sure of it, but the game may contain unlicensed assets. Any copyright holders may contact me with issues via the contact page on this very site and it will be taken down with no question or resistance if you verify your ownership. The list below is not extensive. I can't check nor edit the project files, as those are long gone.<br>
-            Content used may include:</p>
-            <ul>
-                <li class="clist">Pegboard Nerds - Try This</li>
-                <li class="clist">Nic and the Family - Hej Monika</li>
-                <li class="clist">Selected works by Kevin MacLeod (Incompetech)</li>
-                <li class="clist">Selected tracks from the soundtrack of Pokémon Platinum</li>
-                <li class="clist">Selected tracks from the soundtrack of G-Force (the video game (2009))</li>
-            </ul>
-        <p style="font-size: 12px; margin:-4px">I would replace the assets if I could. If anyone representing the people/groups above wishes, I will remove the download link.</p>
-
-
+            <br>This one isn't as heinously ridden with copyrighted content as my earlier projects. If PepsiCo wishes to have this taken down, they may contact me via the contact form on this website.</p>
         <script>
             let currentImageIndex = 0;
             const images = document.querySelectorAll('.screenshot-gallery img');

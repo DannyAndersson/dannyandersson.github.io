@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/resources/favicon.ico" type="image/x-icon">
 
-    <title>Projects</title>
+    <title>Writings</title>
     <style>
     body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(90deg, #261527, #4e8b53);
+        background: linear-gradient(90deg, #137565, #d77309);
         background-size: 400% 400%;
         animation: gradientAnimation 15s infinite alternate;
         font-family: Arial, Helvetica, sans-serif;
@@ -167,54 +167,13 @@
 .project.open .project-content {
     display: block;
 }
-
-#project-categories {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.project-category {
-    flex: 0 0 calc(25% - 20px);
-    background-color: #fff;
-    border: 1px solid #1aaeff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-    position: relative;
-}
-
-.project-category-bg {
-    width: 100%;
-    padding-top: 60%; /* Set the aspect ratio of your background image */
-    background-size: cover;
-    background-position: center;
-}
-
-.project-category h2 {
-    color: #1aaeff;
-    text-align: center;
-    padding: 10px;
-    margin: 0;
-    background-color: #2e2e2e;
-    border-top: 1px solid #1aaeff;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.project-category:hover {
-    transform: scale(1.05); /* Add a slight zoom effect on hover */
-}
-
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <div id="navbar">
         <ul>
-            <a href="https://daniellind.se"><li><img src="/resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="https://daniellind.se/"><li><img src="/resources/home-icon.png" alt="Home Icon"> Home</li></a>
             <a href="/en/projects"><li><img src="/resources/project-icon.png" alt="Project Icon"> Projects</li></a>
             <a href="/en/contact"><li><img src="/resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
             <a href="/en/about"><li><img src="/resources/about-icon.png" alt="About Icon"> About</li></a>
@@ -227,35 +186,50 @@
 
     <!-- Main Content -->
     <div id="content">
-        <h1>Projects</h1>
-        <p>I've grouped my projects into separate categories for games, software, videos, and other. Currently, only some select games are hosted here.</p>
+        <h1>Writings</h1>
+        <p>Here's some words! Maybe even sentences!</p>
+        <div id="projects">
 
-        <div id="project-categories">
-            <div class="project-category">
-                <a href="/en/games/game-index">
-                    <div class="project-category-bg" style="background-image: url('/resources/games-bg.jpg');"></div>
-                    <h2>Games</h2>
-                </a>
-            </div>
-            <div class="project-category">
-                <a href="/501.html">
-                    <div class="project-category-bg" style="background-image: url('/resources/software-bg.jpg');"></div>
-                    <h2>Software</h2>
-                </a>
-            </div>
-            <div class="project-category">
-                <a href="/501.html">
-                    <div class="project-category-bg" style="background-image: url('/resources/videos-bg.jpg');"></div>
-                    <h2>Videos</h2>
-                </a>
-            </div>
-            <div class="project-category">
-                <a href="/en/other/other-index">
-                    <div class="project-category-bg" style="background-image: url('/resources/other-bg.jpg');"></div>
-                    <h2>Other</h2>
-                </a>
-            </div>
+    <div class="project">
+        <div class="project-header">
+            <h2>On the Subject of Onestop.mid</h2>
+            <button class="toggle-button">Show/Hide</button>
+        </div>
+        <div class="project-content">
+            <img src="/resources/screenshots/writings.png" style="max-width: 45%;">
+            <p>Can't have a 'miscellaneous' section without a page for the things I've written, mostly as part of school work. These are tucked away because they're boring. Maybe you'll find them more interesting than I do. <strike>I doubt it.</strike></p>
+            <a href="documents/doc-index"><button>View</button></a>
         </div>
     </div>
+
+    <div class="project">
+        <div class="project-header">
+            <h2>Placeholder</h2>
+            <button class="toggle-button">Show/Hide</button>
+        </div>
+        <div class="project-content">
+            <img src="/resources/screenshots/wotw.jpg" style="max-width: 45%;" alt="Cover art goes here.">
+            <p>Date: <b>Not Applicable</b></p>
+            <p>This part of the website is not finished. How startling.</p>
+            <a href="weight-of-the-world"><button>Full Details</button></a>
+            <a href="wotw/listen"><button style="background-color: #49d878;">View</button></a>
+        </div>
+    </div>
+</div>
+</div>
+    <script>
+        // JavaScript to handle toggling project content
+        document.addEventListener('DOMContentLoaded', function () {
+            const projects = document.querySelectorAll('.project');
+        
+            projects.forEach(function (project) {
+                const button = project.querySelector('.toggle-button');
+        
+                button.addEventListener('click', function () {
+                    project.classList.toggle('open');
+                });
+            });
+        });
+        </script>        
 </body>
 </html>

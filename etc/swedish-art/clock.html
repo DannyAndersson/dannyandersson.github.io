@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #date {
+            font-size: 1.5rem;
+        }
+
+        #toggleButton {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        #analogClock {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <div id="date"></div>
+    <!--<button id="toggleButton">Switch to Analog Clock</button>-->
+    <div id="analogClock"></div>
+
+    <script>
+        const clockElement = document.getElementById('clock');
+        const dateElement = document.getElementById('date');
+        const toggleButton = document.getElementById('toggleButton');
+        const analogClockElement = document.getElementById('analogClock');
+
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const month = now.toLocaleString('default', { month: 'long' });
+            const day = now.getDate();
+            const year = now.getFullYear();
+
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            dateElement.textContent = `${month} ${day}, ${year}`;
+        }
+
+        function toggleAnalogClock() {
+            if (analogClockElement.style.display === 'none') {
+                analogClockElement.style.display = 'block';
+                toggleButton.textContent = 'Switch to Digital Clock';
+                clockElement.style.display = 'none';
+                dateElement.style.display = 'none';
+                renderAnalogClock();
+            } else {
+                analogClockElement.style.display = 'none';
+                toggleButton.textContent = 'Switch to Analog Clock';
+                clockElement.style.display = 'block';
+                dateElement.style.display = 'block';
+            }
+        }
+
+        function renderAnalogClock() {
+            // You can implement the analog clock here or embed a library like 'Clock.js'
+            // to display the analog clock as desired.
+            // Example: https://github.com/pablopunk/Clock.js
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        toggleButton.addEventListener('click', toggleAnalogClock);
+    </script>
+</body>
+</html>

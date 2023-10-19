@@ -1,0 +1,233 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sounds like FENRIS mechs.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="hexagons.css">
+        <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+
+        <style>
+            .hex {
+    display: none;
+}
+
+.theSound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Add a black vignette overlay */
+body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        </style>
+    </head>
+    <body>
+      <div class="theSound">
+        <audio id="audioPlayer" controls preload="auto" style="display: block;">
+          <source src="mayhem.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+
+      </div>
+        <ul id="hexGrid">
+            <li class="hex">
+                <div class="hexIn"><div class="hexLink" style="background-color: beige;"></div></div>
+            </li>
+            
+        
+            <script>
+                // Constants
+                const hexGrid = document.getElementById("hexGrid");
+                const numberOfHexagons = 32;
+                const originalHex = document.querySelector(".hex");
+                const hexagons = [];
+                const reachedHexagons = [];
+                const delayValues = [983, 961, 940, 917, 895, 873, 851, 829, 807, 785, 763, 741, 720, 697, 675, 653, 631, 609, 588, 565, 543, 521, 500, 478, 456, 434, 412, 391, 368, 346, 324, 302, 280, 258, 237, 214, 192, 170, 148, 126, 104, 83, 60, 38, 16];
+                const audioPlayer = document.getElementById("audioPlayer");
+              
+                // State variables
+                let currentHexIndex = -1;
+                let timeoutId;
+                let gameOver = false;
+                let currentDelayIndex = 0;
+              
+                // Initialize the game
+                function initializeGame() {
+                  createHexagons();
+                  audioPlayer.style.display = "none";
+                  showAllHexagons();
+                  startGame();
+                }
+              
+                // Create and append the required number of hexagons
+                function createHexagons() {
+                  for (let i = 0; i < numberOfHexagons; i++) {
+                    const newHex = originalHex.cloneNode(true);
+                    hexGrid.appendChild(newHex);
+                    hexagons.push(newHex);
+                  }
+                  originalHex.remove();
+                }
+              
+                // Show all the hexagons
+                function showAllHexagons() {
+                  hexagons.forEach((hexagon) => {
+                    hexagon.style.display = "block";
+                  });
+                }
+              
+                // Reset the game state
+                function resetGame() {
+                  clearTimeout(timeoutId);
+                  if (currentHexIndex !== -1 && !gameOver) {
+                    hexagons[currentHexIndex].querySelector(".hexLink").style.backgroundColor = "green";
+                  }
+                  currentHexIndex = -1;
+                  gameOver = false;
+                }
+              
+// Change a green hexagon back to black with a fade effect
+function changeGreenToBlack(index) {
+  const hexLink = hexagons[index].querySelector(".hexLink");
+  const startTime = performance.now();
+  const duration = 1800; // milliseconds
+  const initialColor = getComputedStyle(hexLink).backgroundColor;
+  const initialGreen = parseInt(initialColor.split(",")[1]); // Extract the green channel value
+
+  function animate() {
+    const currentTime = performance.now();
+    const elapsed = currentTime - startTime;
+
+    if (elapsed < duration) {
+      // Calculate the new green channel value based on the elapsed time
+      const greenChannel = Math.max(
+        0,
+        initialGreen - (initialGreen / duration) * elapsed
+      );
+      
+      // Set the background color with the updated green channel
+      hexLink.style.backgroundColor = `rgb(0, ${Math.round(greenChannel)}, 0)`;
+
+      // Request the next frame for smooth animation
+      requestAnimationFrame(animate);
+    } else {
+      // Animation complete, set the background to black
+      hexLink.style.backgroundColor = "black";
+      hexagons[index].removeEventListener("mouseover", handleBlackHexHover);
+    }
+  }
+
+  // Start the animation
+  requestAnimationFrame(animate);
+}
+              
+                // Handle mouseover events on black hexagons
+                function handleBlackHexHover() {
+                  window.location.href = "Handlers/403.html";
+                }
+              
+                // Handle mouseover events
+                function handleMouseOver() {
+                  if (!gameOver) {
+                    hexagons[currentHexIndex].querySelector(".hexLink").style.backgroundColor = "green";
+                    gameOver = true;
+                    reachedHexagons.push(currentHexIndex);
+                    changeGreenToBlack(currentHexIndex);
+                    hexagons[currentHexIndex].removeEventListener("mouseover", handleMouseOver);
+                    if (reachedHexagons.length === numberOfHexagons) {
+                      window.location.href = "heaven.html";
+                    } else {
+                      const currentDelay = getCurrentDelay();
+                      setTimeout(lightUpRandomHex, currentDelay);
+                    }
+                  }
+                }
+              
+                // Get the current delay and increment the delay index
+                function getCurrentDelay() {
+                  const delay = delayValues[currentDelayIndex];
+                  currentDelayIndex = (currentDelayIndex + 1) % delayValues.length;
+                  return delay;
+                }
+              
+                // Start the game
+                function startGame() {
+                  lightUpRandomHex();
+                }
+              
+               // Randomly select a hexagon and make it red
+function lightUpRandomHex() {
+  resetGame();
+  const unreachedIndices = Array.from({ length: numberOfHexagons }, (_, i) => i)
+    .filter((index) => !reachedHexagons.includes(index));
+  if (unreachedIndices.length === 0) {
+    window.location.href = "heaven.html";
+    return;
+  }
+  const randomIndex = unreachedIndices[Math.floor(Math.random() * unreachedIndices.length)];
+  hexagons[randomIndex].querySelector(".hexLink").style.backgroundColor = "red";
+  currentHexIndex = randomIndex;
+  hexagons[randomIndex].addEventListener("mouseover", handleMouseOver);
+
+  // Implement the random clause
+  if (Math.random() < 0.13) {
+    setTimeout(() => {
+      if (!gameOver) {
+        hexagons[randomIndex].querySelector(".hexLink").style.backgroundColor = "black";
+        hexagons[randomIndex].removeEventListener("mouseover", handleMouseOver);
+        hexagons[randomIndex].addEventListener("mouseover", handleBlackHexHover);
+        timeoutId = setTimeout(() => {
+          if (!gameOver) {
+            reachedHexagons.push(randomIndex);
+            lightUpRandomHex();
+          }
+        }, 2000);
+      }
+    }, 200);
+  } else {
+    timeoutId = setTimeout(() => {
+      if (!gameOver) {
+        window.location.href = "Handlers/403.html";
+      }
+    }, 2000);
+  }
+
+  hexagons.forEach((hexagon, index) => {
+    if (
+      hexagon.querySelector(".hexLink").style.backgroundColor === "black" &&
+      index !== randomIndex
+    ) {
+      hexagon.addEventListener("mouseover", handleBlackHexHover);
+    }
+  });
+}
+
+              
+                // Listen for the 'Q' key press
+                document.addEventListener("keydown", (event) => {
+                  if (event.key === "q" || event.key === "Q") {
+                    lightUpRandomHex();
+                  }
+                });
+              
+                // Listen for the 'play' event on the audio player to start the game
+                audioPlayer.addEventListener("play", initializeGame);
+            
+              </script>
+        </ul>
+    </body>
+</html>

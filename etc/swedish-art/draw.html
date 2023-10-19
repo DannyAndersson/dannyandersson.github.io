@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<style>
+    /* Add some basic styles to make things look better */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('studio.png');
+        background-size: cover; /* Adjust how the image covers the background */
+        background-repeat: no-repeat; /* Prevent image from repeating */
+    }
+
+    header {
+        background-color: #21364d;
+        color: white;
+        padding: 5% 2%;
+        display: flex;
+        align-items: top;
+    }
+
+    .logo {
+    display: flex;
+    align-items: center;
+}
+
+    .logo img {
+        width: 100px;
+        height: auto;
+        align-self: auto;
+        margin-top: 0px;
+        margin-right: 30px; /* Add margin to the right of the logo */
+        margin-left: 20px;  /*Add margin to the left of the logo */
+    }
+
+    .title-text {
+    margin: 0px;
+    font-size: 48px; /* Adjust the font size */
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #EECF1D;
+    line-height: 0.9;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 30px;
+    /* Add both margins to push navigation to the right */
+    margin-left: -50%;
+    margin-right: 3%; /* Adjust this value as needed */
+}
+
+.title {
+    background-color: #21364d;
+    color: white;
+    padding: 10px 2px;
+    display: flex;
+    justify-content: space-between; /* Add this line */
+    align-items: center;
+
+     /* Add drop shadow */
+     box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+}
+
+.title {
+    background-color: #21364d;
+    color: white;
+    padding: 0.5% 0.8%;
+    display: flex;
+    justify-content: space-between; /* Add this line */
+    align-items: center;
+
+     /* Add drop shadow */
+     box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+}
+
+    nav li {
+        font-size: 36px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-right: 5%;
+        margin-left: 2.8%;
+        position: relative;
+    }
+
+    nav li:last-child {
+        margin-right: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease-in-out; /* Add this line for the color transition */
+    }
+
+    /* Add a rule to change the color when hovering over main menu items */
+nav a:hover {
+    color: #ffd700; /* Change to your desired color */
+}
+
+       /* Styles for the dropdown menu */
+       .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #294c64;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Add animations to the dropdown menu */
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fade-in 0.3s ease-in-out;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease-in-out; /* Add this line for the color transition */
+}
+
+/* Add a rule to change the color when hovering over sub-options */
+.dropdown-content a:hover {
+    color: #ffd700; /* Change to your desired color */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Specific canvas crap*/
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.undo-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #21364d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .color-options {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            position: relative;
+            left: 2%;
+            bottom: 18%;
+        }
+        .color-option {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid transparent;
+        }
+
+        .color-option.selected {
+            border-color: #000;
+        }
+
+        .toolbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            right: 40%;
+            bottom: -20%;
+        }
+
+        .tool-option {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .tool-option.selected {
+            border-color: #000;
+        }
+
+        .slider-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+</style>
+
+<html>
+    <head>
+        <title>Swedish Art - Canvas</title>
+        <header class="title">
+            <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Swedish Art Logo" width="128" height="128"></a>
+            <p class="title-text">Swedish Art</p> <!-- Add this line -->
+        </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li class="dropdown">
+                        <a href="#">Art</a>
+                        <div class="dropdown-content">
+                            <a href="#">View Galleries</a>
+                            <a href="#">Create Art</a>
+                            <a href="#">Crime</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </head>
+
+    <body>
+    
+        <div class="canvas-container">
+        <canvas class="canv" id="drawingCanvas" width="800" height="600" style="border: 4px solid #000; background-color: white; box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.2);"></canvas>
+
+        <div class="color-options">
+            <div class="color-option" style="background-color: #ffffff;"></div>
+            <div class="color-option" style="background-color: #ff0000;"></div>
+            <div class="color-option" style="background-color: #ffd000;"></div>
+            <div class="color-option" style="background-color: #ffff00;"></div>
+            <div class="color-option" style="background-color: #00ff00;"></div>
+            <div class="color-option" style="background-color: #0000ff;"></div>
+            <div class="color-option" style="background-color: #ff00ff;"></div>
+            <!-- Add more color options here -->
+            <div class="color-option" style="background-color: #555555;"></div>
+            <div class="color-option" style="background-color: #cc0000;"></div>
+            <div class="color-option" style="background-color: #c07d00;"></div>
+            <div class="color-option" style="background-color: #cccc00;"></div>
+            <div class="color-option" style="background-color: #00cc00;"></div>
+            <div class="color-option" style="background-color: #0000cc;"></div>
+            <div class="color-option" style="background-color: #cc00cc;"></div>
+            <!-- Add more color options here -->
+            <div class="color-option" style="background-color: #242424;"></div>
+            <div class="color-option" style="background-color: #aa0000;"></div>
+            <div class="color-option" style="background-color: #744300;"></div>
+            <div class="color-option" style="background-color: #aaaa00;"></div>
+            <div class="color-option" style="background-color: #00aa00;"></div>
+            <div class="color-option" style="background-color: #0000aa;"></div>
+            <div class="color-option" style="background-color: #aa00aa;"></div>
+            <!-- Add more color options here -->
+            <div class="color-option" style="background-color: #000;"></div>
+            <div class="color-option" style="background-color: #330000;"></div>
+            <div class="color-option" style="background-color: #633a00;"></div>
+            <div class="color-option" style="background-color: #333300;"></div>
+            <div class="color-option" style="background-color: #003300;"></div>
+            <div class="color-option" style="background-color: #000033;"></div>
+            <div class="color-option" style="background-color: #330033;"></div>
+
+            <div id="customColorOption" class="color-option" style="background-color: #00ffff;"></div>
+        </div>
+        <div class="tools">
+            <button id="customColorButton">Change Custom Color</button>
+
+            <div class="slider-container">
+                <label for="brushSizeSlider">Brush Size:</label>
+                <input type="range" id="brushSizeSlider" min="1" max="20" value="5">
+            </div>
+        </div>
+        <div id="colorPicker" style="display: block;">
+            <input type="color" id="customColorInput">
+        </div>
+
+        <button id="undoButton">Undo</button>
+
+        <script>
+            const canvas = document.getElementById("drawingCanvas");
+            const ctx = canvas.getContext("2d");
+            const undoButton = document.getElementById("undoButton");
+            const colorOptions = document.querySelectorAll(".color-option");
+            const brushTool = document.querySelector(".brush");
+            const brushSizeSlider = document.getElementById("brushSizeSlider");
+            const customColorButton = document.getElementById("customColorButton");
+            const customColorOption = document.getElementById("customColorOption");
+            const customColorInput = document.getElementById("customColorInput");
+    
+            let painting = false;
+            let undoList = [];
+            let selectedColor = "black"; // Default color
+            let brushSize = brushSizeSlider.value;
+    
+            function startPosition(e) {
+                painting = true;
+                undoList.push([...ctx.getImageData(0, 0, canvas.width, canvas.height).data]);
+                draw(e);
+            }
+    
+            function endPosition() {
+                painting = false;
+                ctx.beginPath();
+            }
+    
+            function draw(e) {
+                if (!painting) return;
+    
+                ctx.lineWidth = brushSize;
+                ctx.lineCap = "round";
+                ctx.strokeStyle = selectedColor;
+    
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+    
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+            }
+    
+            function undoLast() {
+                if (!painting && undoList.length > 0) {
+                    ctx.putImageData(new ImageData(new Uint8ClampedArray(undoList.pop()), canvas.width, canvas.height), 0, 0);
+                }
+            }
+    
+            function selectColor(e) {
+                selectedColor = e.target.style.backgroundColor;
+                colorOptions.forEach(option => option.classList.remove("selected"));
+                e.target.classList.add("selected");
+            }
+    
+            function updateBrushSize() {
+                brushSize = brushSizeSlider.value;
+            }
+    
+            function openColorPicker() {
+                customColorInput.click();
+            }
+    
+            function updateCustomColor() {
+                const colorValue = customColorInput.value;
+                customColorOption.style.backgroundColor = colorValue;
+                selectedColor = colorValue;
+            }
+    
+            function decreaseBrushSize() {
+                if (brushSize > 1) {
+                    brushSize--;
+                    brushSizeSlider.value = brushSize;
+                }
+            }
+    
+            function increaseBrushSize() {
+                if (brushSize < 20) {
+                    brushSize++;
+                    brushSizeSlider.value = brushSize;
+                }
+            }
+    
+            canvas.addEventListener("mousedown", startPosition);
+            canvas.addEventListener("mouseup", endPosition);
+            canvas.addEventListener("mousemove", draw);
+            canvas.addEventListener("mouseleave", endPosition);
+    
+            undoButton.addEventListener("click", undoLast);
+    
+            // Ctrl+Z to trigger Undo
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "z" && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    undoLast();
+                }
+                // Shortcut for decreasing brush size
+                if (e.key === "q") {
+                    e.preventDefault();
+                    decreaseBrushSize();
+                }
+                // Shortcut for increasing brush size
+                if (e.key === "e") {
+                    e.preventDefault();
+                    increaseBrushSize();
+                }
+            });
+    
+            // Add color selection event listeners
+            colorOptions.forEach(option => option.addEventListener("click", selectColor));
+    
+            // Update brush size when slider value changes
+            brushSizeSlider.addEventListener("input", updateBrushSize);
+    
+            // Open custom color picker
+            customColorButton.addEventListener("click", openColorPicker);
+    
+            // Update custom color
+            customColorInput.addEventListener("input", updateCustomColor);
+        </script>
+        </div>
+    </body>
+</html>

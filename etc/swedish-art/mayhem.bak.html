@@ -1,0 +1,160 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sounds like Fernis Mechs.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="hexagons.css">
+        <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+
+        <style>
+            .hex {
+    display: none;
+}
+        </style>
+    </head>
+    <body>
+        <audio id="audioPlayer" controls preload="auto" style="display: block;">
+            <source src="mayhem.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul id="hexGrid">
+            <li class="hex">
+                <div class="hexIn"><div class="hexLink" style="background-color: beige;"></div></div>
+            </li>
+            
+        
+            <script>
+                // Constants
+                const hexGrid = document.getElementById("hexGrid");
+                const numberOfHexagons = 22;
+                const originalHex = document.querySelector(".hex");
+                const hexagons = [];
+                const reachedHexagons = [];
+                const delayValues = [1820, 1830, 1250];
+                const audioPlayer = document.getElementById("audioPlayer");
+              
+                // State variables
+                let currentHexIndex = -1;
+                let timeoutId;
+                let gameOver = false;
+                let currentDelayIndex = 0;
+              
+                // Initialize the game
+                function initializeGame() {
+                  createHexagons();
+                  audioPlayer.style.display = "none";
+                  showAllHexagons();
+                  startGame();
+                }
+              
+                // Create and append the required number of hexagons
+                function createHexagons() {
+                  for (let i = 0; i < numberOfHexagons; i++) {
+                    const newHex = originalHex.cloneNode(true);
+                    hexGrid.appendChild(newHex);
+                    hexagons.push(newHex);
+                  }
+                  originalHex.remove();
+                }
+              
+                // Show all the hexagons
+                function showAllHexagons() {
+                  hexagons.forEach((hexagon) => {
+                    hexagon.style.display = "block";
+                  });
+                }
+              
+                // Reset the game state
+                function resetGame() {
+                  clearTimeout(timeoutId);
+                  if (currentHexIndex !== -1 && !gameOver) {
+                    hexagons[currentHexIndex].querySelector(".hexLink").style.backgroundColor = "green";
+                  }
+                  currentHexIndex = -1;
+                  gameOver = false;
+                }
+              
+                // Change a green hexagon back to black after 1 second
+                function changeGreenToBlack(index) {
+                  setTimeout(() => {
+                    hexagons[index].querySelector(".hexLink").style.backgroundColor = "black";
+                    hexagons[index].removeEventListener("mouseover", handleBlackHexHover);
+                  }, 1000);
+                }
+              
+                // Handle mouseover events on black hexagons
+                function handleBlackHexHover() {
+                  window.location.href = "403.html";
+                }
+              
+                // Handle mouseover events
+                function handleMouseOver() {
+                  if (!gameOver) {
+                    hexagons[currentHexIndex].querySelector(".hexLink").style.backgroundColor = "green";
+                    gameOver = true;
+                    reachedHexagons.push(currentHexIndex);
+                    changeGreenToBlack(currentHexIndex);
+                    hexagons[currentHexIndex].removeEventListener("mouseover", handleMouseOver);
+                    if (reachedHexagons.length === numberOfHexagons) {
+                      window.location.href = "heaven.html";
+                    } else {
+                      const currentDelay = getCurrentDelay();
+                      setTimeout(lightUpRandomHex, currentDelay);
+                    }
+                  }
+                }
+              
+                // Get the current delay and increment the delay index
+                function getCurrentDelay() {
+                  const delay = delayValues[currentDelayIndex];
+                  currentDelayIndex = (currentDelayIndex + 1) % delayValues.length;
+                  return delay;
+                }
+              
+                // Start the game
+                function startGame() {
+                  lightUpRandomHex();
+                }
+              
+                // Randomly select a hexagon and make it red
+                function lightUpRandomHex() {
+                  resetGame();
+                  const unreachedIndices = Array.from({ length: numberOfHexagons }, (_, i) => i)
+                    .filter((index) => !reachedHexagons.includes(index));
+                  if (unreachedIndices.length === 0) {
+                    window.location.href = "heaven.html";
+                    return;
+                  }
+                  const randomIndex = unreachedIndices[Math.floor(Math.random() * unreachedIndices.length)];
+                  hexagons[randomIndex].querySelector(".hexLink").style.backgroundColor = "red";
+                  currentHexIndex = randomIndex;
+                  hexagons[randomIndex].addEventListener("mouseover", handleMouseOver);
+                  hexagons.forEach((hexagon, index) => {
+                    if (hexagon.querySelector(".hexLink").style.backgroundColor === "black") {
+                      hexagon.addEventListener("mouseover", handleBlackHexHover);
+                    }
+                  });
+                  timeoutId = setTimeout(() => {
+                    if (!gameOver) {
+                      window.location.href = "403.html";
+                    }
+                  }, 2000);
+                }
+              
+                // Listen for the 'Q' key press
+                document.addEventListener("keydown", (event) => {
+                  if (event.key === "q" || event.key === "Q") {
+                    lightUpRandomHex();
+                  }
+                });
+              
+                // Listen for the 'play' event on the audio player to start the game
+                audioPlayer.addEventListener("play", initializeGame);
+            
+              </script>
+        </ul>
+    </body>
+</html>

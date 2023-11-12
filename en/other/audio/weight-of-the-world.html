@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/resources/favicon.ico" type="image/x-icon">
+
+    <title>Weight of the World</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+        p {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            max-width: 75%;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
+
+        b{
+            color:#fff;
+        }
+
+        button{
+            background-color: #1aaeff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar Styles */
+        #navbar {
+            position: fixed;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%;
+            background-color: #111;
+            color: #fff;
+            border-right: 1px solid #1aaeff; /* Vertical divider */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navbar li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        #navbar li:hover {
+            background-color: #1aaeff; /* Accent color on hover */
+        }
+
+        #navbar img {
+            width: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
+        #content {
+            margin-left: 220px; /* Space for the navigation bar */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        /* Content Styles */
+        /* Add your content styles here */
+
+        /* Copyright Style */
+        #copyright {
+            padding: 10px;
+            text-align: center;
+            background-color: #1aaeff;
+            color: #fff;
+        }
+
+        /* Image Styles */
+        #profile-picture {
+            border: 4px solid #1aaeff; /* Accent color border */
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+            max-width: 15%;
+        }
+
+        #intro-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Add this to your existing styles */
+.project {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1aaeff;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.project-header h2 {
+    margin: 0;
+}
+
+.toggle-button {
+    background-color: #fff;
+    border: 1px solid #1aaeff;
+    color: #1aaeff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.project-content {
+    display: none;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+.project.open .project-content {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <ul>
+            <a href="https://daniellind.se/"><li><img src="/resources/home-icon.png" alt="Home Icon"> Home</li></a>
+            <a href="/en/projects"><li><img src="/resources/project-icon.png" alt="Project Icon"> Projects</li></a>
+            <a href="/en/contact"><li><img src="/resources/contact-icon.png" alt="Contact Icon"> Contact</li></a>
+            <a href="/en/about"><li><img src="/resources/about-icon.png" alt="About Icon"> About</li></a>
+        </ul>
+        <!-- Copyright Information -->
+        <div id="copyright">
+            &copy; 2023 Daniel Lind
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Music Jukebox -->
+        <div id="music-jukebox">
+            <h2>Album Title</h2>
+            <!-- Cover Images -->
+            <img src="/resources/front-cover.jpg" alt="Front Cover">
+            <img src="/resources/back-cover.jpg" alt="Back Cover">
+
+            <!-- Tracklist -->
+            <ol>
+                <li><a href="path-to-track1.mp3">Track 1</a></li>
+                <li><a href="path-to-track2.mp3">Track 2</a></li>
+                <li><a href="path-to-track3.mp3">Track 3</a></li>
+                <!-- Add more tracks as needed -->
+            </ol>
+
+            <!-- Audio Player -->
+            <audio controls>
+                <source src="path-to-default-audio.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    
+        <!-- Your existing script for toggling project content here -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const projects = document.querySelectorAll('.project');
+            
+                projects.forEach(function (project) {
+                    const button = project.querySelector('.toggle-button');
+            
+                    button.addEventListener('click', function () {
+                        project.classList.toggle('open');
+                    });
+                });
+            });
+        </script>    
+</body>
+</html>

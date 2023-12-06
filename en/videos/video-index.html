@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/resources/projects.css">
+    <link rel="stylesheet" href="/resources/video.css">
 
-    <title>Daniel Lind - Contact</title>
+    <title>Daniel Lind - Projects</title>
 </head>
 <body>
     <!-- Navigation Bar Mobile -->
@@ -33,17 +33,30 @@
             &copy; 2023 Daniel Lind
         </div>
     </div>
-
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Contact Me</h1>
-        <p>If you have any questions, concerns, or just wanna say hello, feel free to reach out to me using the following methods:</p>
-
-        <h2>Email</h2>
-        <p>You can contact me via email at: <a href="mailto:daniellind4m+2@gmail.com">DanielLind4M+2@gmail.com</a> or <a href="mailto:sweden.daniel.andersson+7@gmail.com">Sweden.Daniel.Andersson+7@gmail.com</a></p>
-
-        <h2>Discord</h2>
-        <p>You can also reach me on Discord. My username is: <b>@danielandersson</b></p>
+        <flex-container>
+        <div id="video-list">
+            <div class="collapsible-video-container">
+                <img src="/resources/video_thumbnails/vcs.jpg" alt="Thumbnail of Veronika's Cooking Show">
+                <h2>Veronika's Cooking Show</h2>
+                <button>Read details</button>
+                <button>Watch on YouTube</button>
+            </div>
+            <div class="collapsible-video-container">
+                <img src="/resources/video_thumbnails/vws.jpg" alt="Thumbnail of Veronika's Workshop">
+                <h2>Veronika's Workshop - How to open a bottle</h2>
+                <button>Read details</button>
+                <button>Watch on YouTube</button>
+            </div>
+            <div class="collapsible-video-container">
+                <img src="/resources/video_thumbnails/agl.jpg" alt="Thumbnail of Nordenbergs Fysiklabb - Allmänna Gaslagen">
+                <h2>Nordenbergs Fysiklabb - Allmänna Gaslagen</h2>
+                <button>Read details</button>
+                <button>Watch on YouTube</button>
+            </div>
+        </div>
+        </flex-container>
     </div>
 </body>
 </html>

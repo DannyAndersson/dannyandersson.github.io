@@ -1,0 +1,56 @@
+
+
+flex-container{
+    /*Vertical on phone, horizontal on desktop. Make sure text doesn't overlap images.*/
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+align-content: center;
+/*Make sure the images don't overlap*/
+padding: 10px;
+/*Make sure the images are centered*/
+margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+    flex-container{flex-direction: row;}
+}
+
+img{
+    width:100%;
+    height: auto;
+}
+
+flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+    margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+    flex-container {
+        flex-direction: row;
+    }
+}
+
+.project-category {
+    margin: 10px;
+    text-align: center;
+}
+
+.project-category-bg {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    background-size: cover;
+}
+
+h1, h2, p {
+    margin: 0;
+}

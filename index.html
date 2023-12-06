@@ -4,145 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
 
     <title>Daniel Lind</title>
-    <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(70deg, #1d0c6e, #135203);
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s infinite alternate;
-        font-family: Arial, sans-serif;
-    }
-
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
-        }
-        100% {
-            background-position: 100% 50%;
-        }
-    }
-        p {
-            color: #fff;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        h1 {
-            color: #fff;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        a{
-            text-decoration: none;
-            color:#fff;
-        }
-
-        button{
-            background-color: #1aaeff;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Navigation Bar Styles */
-        #navbar {
-            position: fixed;
-            width: 200px; /* Adjust the width as needed */
-            height: 100%;
-            background-color: #111;
-            color: #fff;
-            border-right: 1px solid #1aaeff; /* Vertical divider */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        #navbar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #navbar li {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            cursor: pointer;
-        }
-
-        #navbar li:hover {
-            background-color: #1aaeff; /* Accent color on hover */
-        }
-
-        #navbar img {
-            width: 24px; /* Adjust icon size */
-            margin-right: 10px;
-        }
-
-        #content {
-            margin-left: 220px; /* Space for the navigation bar */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Content Styles */
-        /* Add your content styles here */
-
-        /* Copyright Style */
-        #copyright {
-            padding: 10px;
-            text-align: center;
-            background-color: #1aaeff;
-            color: #fff;
-        }
-
-        /* Image Styles */
-        #profile-picture {
-            border: 4px solid #1aaeff; /* Accent color border */
-            border-radius: 50%; /* Make it circular */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
-            max-width: 15%;
-        }
-
-        #intro-text {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        #cookie-consent-banner {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    #cookie-consent-banner button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-    }
-
-    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar Mobile -->
+    <div id="navbar-mobile">
+        <ul>
+            <a href="https://daniellind.se/"><li><img src="resources/home-icon.png" alt="Home Icon"></li></a>
+            <a href="en/projects"><li><img src="resources/project-icon.png" alt="Project Icon"></li></a>
+            <a href="en/contact"><li><img src="resources/contact-icon.png" alt="Contact Icon"></li></a>
+            <a href="en/about"><li><img src="resources/about-icon.png" alt="About Icon"></li></a>
+        </ul>
+    </div>
+
+    <!-- Navigation Bar Desktop -->
     <div id="navbar">
         <ul>
             <a href="https://daniellind.se/"><li><img src="resources/home-icon.png" alt="Home Icon"> Home</li></a>
@@ -156,57 +34,18 @@
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="content">
-        <!-- Your website content goes here -->
-        <h1>C:\Daniel\</h1>
-        <!-- Profile Picture -->
-        <img id="profile-picture" src="resources/daniel.png" alt="Daniel Lind">
-        <!-- Introductory Text -->
-        <div id="intro-text">
-            <p>Hi there! I'm Daniel Lind, and this is a site to showcase and share some selected projects I've worked on. Please use the navigation bar to your left at your leisure, or click below to jump directly to the list of projects.</p>
-            <a href="en/projects"><button>View Projects</button></a>
-            <hr>
-            <p>This website was developed as part of a Web Development high school course with zero experience. You could probably tell that at a cursory glance.</p>
+    <div class="main-content">
+        <flex-container>
+        <div class="flex-item">
+            <img class="profile-picture" src="resources/daniel.png" alt="Daniel Lind">
+            <h1>Daniel Lind</h1>
         </div>
+        <div class="secondary-content flex-item" style="padding:24px">
+            <h2>News:</h2>
+            <!--<p style="text-align: justify">Website has finally been updated to feature all content! You can explore every page and should probably not see anything that's broken. If you do, <b><a href="https://daniellind.se/en/contact">contact me</a></b>!</p>-->
+            <p style="text-align: justify">The site is currently being reconstructed! It is completely broken at the moment, I am working on it!</p>
+        </div>
+        </flex-container>
     </div>
-
-    <div id="cookie-consent-banner">
-        <p>This site uses cookies to store your website preferences, and nothing else. I will not sell your data nor store junk on your computer.</p>
-        <button onclick="acceptCookies()">Accept</button>
-        <button onclick="rejectCookies()">Reject</button>
-    </div>
-    
-    <script>
-        function acceptCookies() {
-            // Set a cookie to indicate that the user has accepted cookies
-            document.cookie = "cookiesAccepted=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
-    
-            // Hide the cookie consent banner
-            document.getElementById("cookie-consent-banner").style.display = "none";
-        }
-    
-        function rejectCookies() {
-            // Set a cookie to indicate that the user has rejected cookies
-            document.cookie = "cookiesAccepted=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
-    
-            // Hide the cookie consent banner
-            document.getElementById("cookie-consent-banner").style.display = "none";
-        }
-    
-        // Check cookies status when the page loads
-        window.onload = checkCookiesAccepted;
-        
-        function checkCookiesAccepted() {
-            const cookies = document.cookie.split(';');
-            for (const cookie of cookies) {
-                const [name, value] = cookie.split('=');
-                if (name.trim() === 'cookiesAccepted' && value === 'true') {
-                    // Hide the cookie consent banner if cookies are accepted
-                    document.getElementById("cookie-consent-banner").style.display = "none";
-                }
-            }
-        }
-    </script>
 </body>
 </html>

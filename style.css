@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #1d0c6e, #135203);
+    background-size: 400% 400%;
+    animation: gradientAnimation 4s infinite alternate;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+    p {
+        color: #fff;
+        font-family: 'Hedvig Letters Sans', sans-serif;
+    }
+
+    h1 {
+        color: #fff;
+        font-family: 'Hedvig Letters Sans', sans-serif;
+    }
+
+    a{
+        text-decoration: none;
+        color:#fff;
+    }
+
+    button{
+        background-color: #1aaeff;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Navigation Bar Styles */
+    #navbar {
+        position: fixed;
+        width: 167px; /* Adjust the width as needed */
+        height: 100%;
+        background-color: #111;
+        color: #fff;
+        border-right: 1px solid #1aaeff; /* Vertical divider */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #navbar li {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    #navbar li:hover {
+        background-color: #1aaeff; /* Accent color on hover */
+    }
+
+    #navbar img {
+        width: 24px; /* Adjust icon size */
+        margin-right: 10px;
+    }
+
+    /* Copyright Style */
+    #copyright {
+        padding: 10px;
+        text-align: center;
+        background-color: #1aaeff;
+        color: #fff;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+        margin-left: 167px; /* Same as the width of the sidenav */
+        padding: 10px 10px;
+    }
+
+    h1{
+        color:white;
+        font-size: 50px;
+    }
+
+    h2{
+        color:white;
+    }
+
+    #navbar-mobile{
+        position: relative;
+        width: 100%;
+        height: 72px;
+        background-color: #111;
+        color: #fff;
+        border-bottom: 1px solid #1aaeff; /* Vertical divider */
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+    }
+
+    #navbar-mobile ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    
+    #navbar-mobile li {
+        margin-right: 10px;
+        margin: 12px;
+    }
+    
+    #navbar-mobile img {
+        width: 64px; /* adjust size as needed */
+        height: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        /*remove navbar so main content has more space*/
+        #navbar {
+            width: 0;
+            display: none;
+        }
+        /*make main content take up whole screen*/
+        .main-content {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        /*remove mobile navbar*/
+        #navbar-mobile {
+            width: 0;
+            display: none;
+        }
+    }

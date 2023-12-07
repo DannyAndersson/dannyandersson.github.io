@@ -1,0 +1,69 @@
+/* Game Projects Styles */
+
+#main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.project {
+    width: 100%;
+    max-width: 600px;
+    min-width: 600px;
+    margin-bottom: 20px;
+    background-color: #111;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1aaeff;
+    cursor: pointer;
+}
+
+.project-content {
+    padding: 15px;
+    display: none;
+}
+
+.project.open .project-content {
+    display: block;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.project p {
+    margin-bottom: 15px;
+}
+
+.project button {
+    margin-top: 10px;
+    outline: white solid 1px;
+    /* She's covered in termites. They stole her feet. She's an amputee, for God's sake! How can you be so heartless? */
+    /* You're sick, you know that? You're really sick. I hope you get help. I hope you get the help you need. */
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 800px) {
+    .project {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .project img {
+        max-width: 100%;
+    }
+}

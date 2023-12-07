@@ -1,0 +1,90 @@
+/* Style for the video-grid section */
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the video-container section */
+.video-container {
+    width: 20%;
+    min-height: 250px; /* Adjust this value based on your preference */
+    max-height: 250px; /* Adjust this value based on your preference */
+    display: flex;
+    flex-direction: column;
+    
+    margin: 10px;
+    /*border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #999;*/
+    outline: #1aaeff solid 1px;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+/* Style for the video thumbnail image */
+.video-container img {
+    width: 100%;
+    height: auto;
+    max-height: 128px;
+}
+
+/* Style for the video title */
+.video-container h3 {
+    margin: 10px;
+    /*font-size: 1.2em;*/
+    text-align: center;
+    color: white;
+    font-size-adjust: 0.5; /* You can adjust this value based on your preference */
+
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+}
+
+/* Style for the video buttons */
+.video-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    align-content: bottom;
+    align-items: bottom;
+    margin-top: auto;
+
+    button{
+        margin:4px;
+    }
+}
+
+/* Style for the video buttons hover effect */
+.video-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 3px 10px #14899e;
+}
+
+/* Media query for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    /* Reduce the font size of the main-content section */
+    .main-content {
+        font-size: 16px;
+    }
+
+    /* Reduce the width of the video-container section */
+    .video-container {
+        width: 90%;
+    }
+
+    .video-container h3 {
+        margin: 10px;
+        font-size: 1.2em;
+        text-align: center;
+        color: white;
+        overflow:scroll;
+       text-overflow:unset;
+       display:block;
+    }
+}

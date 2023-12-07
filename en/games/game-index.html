@@ -3,174 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/resources/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/resources/gameproj.css">
 
-    <title>Projects</title>
-    <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(90deg, #231375, #6e6545);
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s infinite alternate;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
-        }
-        100% {
-            background-position: 100% 50%;
-        }
-    }
-        p {
-            color: #fff;
-            font-family: Helvetica, Arial, sans-serif;
-            max-width: 75%;
-        }
-
-        h1 {
-            color: #fff;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        a{
-            text-decoration: none;
-            color:#fff;
-        }
-
-        b{
-            color:#fff;
-        }
-
-        button{
-            background-color: #1aaeff;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Navigation Bar Styles */
-        #navbar {
-            position: fixed;
-            width: 200px; /* Adjust the width as needed */
-            height: 100%;
-            background-color: #111;
-            color: #fff;
-            border-right: 1px solid #1aaeff; /* Vertical divider */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        #navbar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #navbar li {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            cursor: pointer;
-        }
-
-        #navbar li:hover {
-            background-color: #1aaeff; /* Accent color on hover */
-        }
-
-        #navbar img {
-            width: 24px; /* Adjust icon size */
-            margin-right: 10px;
-        }
-
-        #content {
-            margin-left: 220px; /* Space for the navigation bar */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-        }
-
-        /* Content Styles */
-        /* Add your content styles here */
-
-        /* Copyright Style */
-        #copyright {
-            padding: 10px;
-            text-align: center;
-            background-color: #1aaeff;
-            color: #fff;
-        }
-
-        /* Image Styles */
-        #profile-picture {
-            border: 4px solid #1aaeff; /* Accent color border */
-            border-radius: 50%; /* Make it circular */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
-            max-width: 15%;
-        }
-
-        #intro-text {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        /* Add this to your existing styles */
-.project {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid #1aaeff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #1aaeff;
-    color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.project-header h2 {
-    margin: 0;
-}
-
-.toggle-button {
-    background-color: #fff;
-    border: 1px solid #1aaeff;
-    color: #1aaeff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.project-content {
-    display: none;
-    padding: 10px 20px;
-    background-color: black;
-}
-
-.project.open .project-content {
-    display: block;
-}
-    </style>
+    <title>Daniel Lind - Games</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar Mobile -->
+    <div id="navbar-mobile">
+        <ul>
+            <a href="https://daniellind.se/"><li><img src="/resources/home-icon.png" alt="Home Icon"></li></a>
+            <a href="/en/projects"><li><img src="/resources/project-icon.png" alt="Project Icon"></li></a>
+            <a href="/en/contact"><li><img src="/resources/contact-icon.png" alt="Contact Icon"></li></a>
+            <a href="/en/about"><li><img src="/resources/about-icon.png" alt="About Icon"></li></a>
+        </ul>
+    </div>
+
+    <!-- Navigation Bar Desktop -->
     <div id="navbar">
         <ul>
             <a href="https://daniellind.se/"><li><img src="/resources/home-icon.png" alt="Home Icon"> Home</li></a>
@@ -185,11 +35,8 @@
     </div>
 
     <!-- Main Content -->
-    <div id="content">
-        <h1>Projects</h1>
-        <p>Here are some of my game projects, ordered from newest to oldest.</p>
-        <div id="projects">
-    
+    <div id="main-content">
+    <div id="projects">
         <div class="project">
             <div class="project-header">
                 <h2>Russian Pepsi Game</h2>
